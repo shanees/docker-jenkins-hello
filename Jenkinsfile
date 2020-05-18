@@ -19,7 +19,7 @@ pipeline {
 
           stage('deployment stage') {
               steps {
-                bat "mvn run"
+                bat "mvn deploy"
         }
     }
 
