@@ -2,15 +2,24 @@ pipeline{
 	agent any
 	
 	stages{
-		
-		stage('Run Stage'){
+		stage('Compile Stage'){
 			steps{ 
 			 	withMaven(maven:'maven') { 
-			 	 sh 'mvn spring-boot:run'
+			 	 bat 'mvn clean compile'
 			 	}
 			 }
 		
 		}
+		
+		stage('Testing Stage'){
+			steps{ 
+			 	withMaven(maven:'maven') { 
+			 	 bat 'mvn test'
+			 	}
+			 }
+		
+		}
+		
 	
 	
 	}
