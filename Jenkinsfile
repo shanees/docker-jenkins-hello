@@ -19,6 +19,12 @@ pipeline {
                 sh "mvn test"
             }
         }
+        
+        stage('docker build') {
+              steps {
+                sh "docker  build -f  Dockerfile  -t docker-hello1 ."
+              }
+        }
 
 
 
