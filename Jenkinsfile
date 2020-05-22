@@ -25,6 +25,19 @@ pipeline {
            }
         }
         
+         stage('docker build') {
+              steps {
+                sh "docker  build -f  Dockerfile  -t docker-hello1 ."
+              }
+        }
+ 
+    	 stage('docker run') {
+          steps {
+                sh "docker run -d -p 8081:8081 --name docker-hello1 docker-hello1"
+              }
+         }  
+      
+        
  	   
   }
 
