@@ -31,15 +31,15 @@ pipeline {
                 sh "docker  build -f  Dockerfile  -t docker-hello1 ."
               }
         }
-        
+         docker.withServer('docker') {
     	 stage('docker run') {
-          	  steps {      
-             	"docker.image("docker-hello1").run('-p 8081:8081 -h docker-hello1 --docker-hello1')"
+          	  steps {                  	
+             	docker.image("docker-hello1").run('-p 8093:8093 -h docker-hello1 --name docker-hello1')
              
               }
           }
           
- 
+ }
   
   }
 
