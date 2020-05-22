@@ -19,6 +19,12 @@ pipeline {
                 sh "mvn test"
             }
         }
+        stage('Image') {
+           steps {
+                sh "docker stop docker-hello1 || true && docker rm docker-hello1 || true"
+                sh "docker rmi docker-hello1 || true"
+           }
+        }
         
         stage('docker build') {
               steps {
