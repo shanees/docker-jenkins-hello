@@ -18,6 +18,7 @@ pipeline {
              steps {
                 sh "mvn test"
                 sh "docker ps"
+                sh "docker image list"
             }
         }
         stage('Image') {
