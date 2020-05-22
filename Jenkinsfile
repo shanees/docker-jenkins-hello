@@ -7,7 +7,6 @@ pipeline {
     
     stages {
     
-    
         stage('clean and install') {
             steps {
                 sh "mvn clean install" 
@@ -34,13 +33,10 @@ pipeline {
  
     	 stage('docker run') {
           	  steps {                  	
-             	docker.image('docker-hello1').run('-p 8081:8081 -h docker-hello1 --name docker-hello1')   
+             	docker.image(docker-hello1:latest).run('-p 8081:8081 -h docker-hello1 --name docker-hello1')   
            }
          }  
         
-
- 
-  
   }
 
 }
