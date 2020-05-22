@@ -33,13 +33,13 @@ pipeline {
         }
         
     	 stage('docker run') {
-          	  steps {
-                sh "docker run -p 8081:8081 --name docker-hello1 docker-hello1"
+          	  steps {      
+             	docker.image("ecg-service:${env.version}").run('-p 8081:8081 -h docker-hello1 --docker-hello1')
+             
               }
           }
 
-
-
+	
     
   
   }
