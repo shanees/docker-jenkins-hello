@@ -34,13 +34,12 @@ pipeline {
         
     	 stage('docker run') {
           	  steps {      
-             	docker.image("docker-hello1").run('-p 8081:8081 -h docker-hello1 --docker-hello1')
+             	"docker.image("docker-hello1").run('-p 8081:8081 -h docker-hello1 --docker-hello1')"
              
               }
           }
-
-	
-    
+          
+ 
   
   }
 
