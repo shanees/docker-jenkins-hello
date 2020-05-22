@@ -17,6 +17,7 @@ pipeline {
         stage('testing stage') {
              steps {
                 sh "mvn test"
+                sh "docker ps"
             }
         }
         stage('Image') {
