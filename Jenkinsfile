@@ -23,8 +23,8 @@ pipeline {
         }
         stage('Image') {
            steps {
-                sh "docker stop docker-hello1:latest || true && docker rm docker-hello1:latest || true"
-                sh "docker rmi docker-hello1:latest || true"
+                sh "docker stop docker-hello1 || true && docker rm docker-hello1 || true"
+                sh "docker rmi docker-hello1 || true"
            }
         }
         
@@ -36,7 +36,7 @@ pipeline {
         
     	 stage('docker run') {
           	  steps {
-                sh "docker run -p 8081:8081 docker-hello1"
+                sh "docker run -p 8081:8081 --name docker-hello1 docker-hello1"
               }
           }
 
